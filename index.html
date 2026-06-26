@@ -1,11 +1,78 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>Team Website</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>スポーツ紹介サイト</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>チームで作成するウェブサイト</h1>
-    
+
+  <!-- ヘッダー / ナビゲーション -->
+  <header>
+    <div class="site-logo">🏅 スポーツ紹介サイト</div>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">ホーム</a></li>
+        <li><a href="baseball.html">野球</a></li>
+        <li><a href="basketball.html">バスケット</a></li>
+        <li><a href="volleyball.html">バレー</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ヒーローエリア -->
+  <section class="hero">
+    <img src="images/hero.jpg" alt="スポーツの迫力ある写真">
+    <div class="hero-text">
+      <h1>スポーツの世界へようこそ</h1>
+      <p>野球・バスケット・バレーの魅力を紹介します</p>
+    </div>
+  </section>
+
+  <!-- スポーツ一覧 -->
+  <section class="sports-section">
+    <h2>スポーツ一覧</h2>
+    <div class="cards-grid">
+
+      <!-- 野球 -->
+      <div class="card">
+        <img src="images/baseball.jpg" alt="野球">
+        <div class="card-body">
+          <h3>野球</h3>
+          <p>日本で最も人気のあるスポーツのひとつ。投手と打者の駆け引き、チームワークが魅力です。</p>
+          <a href="baseball.html" class="card-link">詳しく見る →</a>
+        </div>
+      </div>
+
+      <!-- バスケットボール -->
+      <div class="card">
+        <img src="images/basketball.jpg" alt="バスケットボール">
+        <div class="card-body">
+          <h3>バスケットボール</h3>
+          <p>スピード感あふれるプレーとチームの連携が見どころ。NBA・Bリーグで世界的に人気急上昇中。</p>
+          <a href="basketball.html" class="card-link">詳しく見る →</a>
+        </div>
+      </div>
+
+      <!-- バレーボール -->
+      <div class="card">
+        <img src="images/volleyball.jpg" alt="バレーボール">
+        <div class="card-body">
+          <h3>バレーボール</h3>
+          <p>6人制・9人制など様々な形式があり、男女ともに世界大会で活躍する人気スポーツです。</p>
+          <a href="volleyball.html" class="card-link">詳しく見る →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <p>© 2026 スポーツ紹介サイト</p>
+  </footer>
+
 </body>
 </html>
