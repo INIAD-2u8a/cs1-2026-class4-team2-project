@@ -47,6 +47,29 @@
   border-radius: 8px;
 }
 
+.card {
+  background: #fff;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 12px;
+  max-width: 600px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  background: #0077cc;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #005fa3;
+}
+
 /* 戻るボタン */
 .detail-back {
   text-align: right;

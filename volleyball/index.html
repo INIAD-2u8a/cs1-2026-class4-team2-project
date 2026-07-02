@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>バレーボール | スポーツ紹介サイト</title>
+
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <!-- ヘッダー / ナビゲーション -->
@@ -27,86 +29,144 @@
     <h2 class="detail-title">バレーボールとは？</h2>
 
     <div class="detail-grid">
+
       <!-- 左：テキスト -->
       <div class="detail-text">
-        <div class="detail-text">
 
-  <h2>バレーボールとは？</h2>
-  <p>
-    バレーボールは、1チーム6人で行う球技で、ネット越しにボールを打ち合い、
-    相手コートにボールを落とすことで得点を競うスポーツです。
-  </p>
+        <h2>バレーボールとは？</h2>
+        <p>
+          バレーボールは、1チーム6人で行う球技で、ネット越しにボールを打ち合い、
+          相手コートにボールを落とすことで得点を競うスポーツです。
+        </p>
 
-  <h3>歴史</h3>
-  <p>
-    1895年にアメリカのウィリアム・G・モーガンによって考案されました。
-    当初は「ミントネット」と呼ばれていましたが、その後ルールが整備され、
-    世界中に広まりました。現在ではオリンピック種目としても定着しています。
-  </p>
+        <h3>歴史</h3>
+        <p>
+          1895年にアメリカのウィリアム・G・モーガンによって考案されました。
+          当初は「ミントネット」と呼ばれていましたが、現在は世界中で親しまれています。
+        </p>
 
-  <h3>基本ルール</h3>
-  <p>
-    1チームは最大3回までボールに触れて相手コートへ返します。
-    基本的な流れは「レシーブ」「トス」「スパイク」です。
-    同じ選手が連続でボールに触れることは原則できません。
-  </p>
+        <h3>基本ルール</h3>
+        <p>
+          1チーム3回以内でボールを返し、「レシーブ・トス・スパイク」で攻撃します。
+        </p>
 
-  <h3>豆知識</h3>
-  <p>
-    バレーボールはもともと、年齢や体力に関係なく楽しめるように考案されたスポーツです。
-    日本女子代表は「東洋の魔女」と呼ばれ、世界大会で金メダルを獲得した歴史があります。
-    また、ビーチバレーボールなどの派生競技もあり、世界中で人気が広がっています。
-  </p>
+        <h3>豆知識</h3>
+        <p>
+          日本女子代表は「東洋の魔女」と呼ばれ、世界大会で優勝した歴史があります。
+          ビーチバレーなどの派生競技も人気です。
+        </p>
 
-</div>
       </div>
 
-      <!-- 右：メイン写真 -->
+      <!-- 右：画像 -->
       <div class="detail-image">
         <img src="../images/volley1.jpg" alt="バレーボール">
       </div>
     </div>
 
-    <h3>反射神経チャレンジ</h3>
-    
-    <p>「スタート！」が出たらすぐ押してください</p>
-    <button onclick="startGame()">開始</button>
+    <!-- =========================
+         🎮 体験ゲームエリア
+    ========================== -->
 
-    <p id="msg"></p>
-    <p id="time"></p>
-    
-    <script>
-    let startTime;
-    
-    function startGame() {
-      document.getElementById("msg").innerHTML = "待って…";
-      
-      setTimeout(() => {
-        document.getElementById("msg").innerHTML = "スタート！";
-        startTime = Date.now();
-  }, Math.random() * 3000 + 1000);
-}
+    <!-- ① 反射神経 -->
+    <section class="card">
+      <h2>⚡反射神経チャレンジ</h2>
+      <p>「スタート！」が出たらすぐクリック！</p>
 
-document.addEventListener("click", function() {
-  if (startTime) {
-    let reaction = Date.now() - startTime;
-    document.getElementById("time").innerHTML =
-      "反応速度: " + reaction + " ms";
-    startTime = null;
-  }
-});
-</script>
+      <button onclick="startGame1()">開始</button>
+
+      <p id="msg1"></p>
+      <p id="result1"></p>
+    </section>
+
+    <!-- ④ 10秒スパイク -->
+    <section class="card">
+      <h2>💥10秒スパイク連打</h2>
+      <p>10秒間でスパイクを連打しよう！</p>
+
+      <button onclick="startGame2()">スタート</button>
+      <button onclick="hit()" id="hitBtn" disabled>スパイク！</button>
+
+      <p id="time">残り時間: -</p>
+      <p id="count">0回</p>
+    </section>
 
     <!-- 戻るボタン -->
     <div class="detail-back">
       <a href="../index.html" class="back-btn">← ホームへ戻る</a>
     </div>
+
   </main>
 
   <!-- フッター -->
   <footer>
     <p>© 2026 スポーツ紹介サイト</p>
   </footer>
+
+  <!-- =========================
+       🎮 JavaScript
+  ========================== -->
+  <script>
+    /* ======================
+       ① 反射神経ゲーム
+    ====================== */
+    let startTime1;
+
+    function startGame1() {
+      document.getElementById("msg1").innerHTML = "待機中...";
+      document.getElementById("result1").innerHTML = "";
+
+      setTimeout(() => {
+        document.getElementById("msg1").innerHTML = "🔥 スタート！クリック！";
+        startTime1 = Date.now();
+      }, Math.random() * 3000 + 1000);
+    }
+
+    document.addEventListener("click", function () {
+      if (startTime1) {
+        let reaction = Date.now() - startTime1;
+        document.getElementById("result1").innerHTML =
+          "反応速度：" + reaction + " ms";
+        startTime1 = null;
+      }
+    });
+
+    /* ======================
+       ④ 10秒スパイク
+    ====================== */
+    let count = 0;
+    let time = 10;
+    let timer;
+
+    function startGame2() {
+      count = 0;
+      time = 10;
+
+      document.getElementById("count").innerHTML = "0回";
+      document.getElementById("time").innerHTML = "残り時間: 10秒";
+
+      document.getElementById("hitBtn").disabled = false;
+
+      timer = setInterval(() => {
+        time--;
+        document.getElementById("time").innerHTML =
+          "残り時間: " + time + "秒";
+
+        if (time <= 0) {
+          clearInterval(timer);
+          document.getElementById("hitBtn").disabled = true;
+          document.getElementById("time").innerHTML = "終了！";
+        }
+      }, 1000);
+    }
+
+    function hit() {
+      if (time > 0) {
+        count++;
+        document.getElementById("count").innerHTML = count + "回";
+      }
+    }
+  </script>
 
 </body>
 </html>
